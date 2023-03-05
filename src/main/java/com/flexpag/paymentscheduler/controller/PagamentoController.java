@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flexpag.paymentscheduler.entilty.Pagamento;
-import com.flexpag.paymentscheduler.entilty.PagamentoStatus;
 import com.flexpag.paymentscheduler.service.PagamentoService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;

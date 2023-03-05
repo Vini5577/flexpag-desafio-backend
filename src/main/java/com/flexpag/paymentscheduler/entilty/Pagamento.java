@@ -5,9 +5,13 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,11 +32,11 @@ public class Pagamento {
     @Column(name="valor")
     private BigDecimal valor;
 
-    @Column(name = "data-do-pagamento")
+    @Column(name = "data_do_pagamento")
     private LocalDateTime dataPagamento;
     
     @Column(name="status")
-    private PagamentoStatus status; // pendig, paid
-
+    @Enumerated(EnumType.STRING)
+    private PagamentoStatus status;
 
 }
