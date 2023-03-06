@@ -1,7 +1,7 @@
 package com.flexpag.paymentscheduler.entilty;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +10,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,8 +30,8 @@ public class Pagamento {
     @Column(name="valor")
     private BigDecimal valor;
 
-    @Column(name = "data_do_pagamento")
-    private LocalDateTime dataPagamento;
+    @Column(name = "hora_pagamento")
+    private LocalTime horaPagamento;
     
     @Column(name="status")
     @Enumerated(EnumType.STRING)
