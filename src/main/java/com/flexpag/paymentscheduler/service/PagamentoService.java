@@ -1,6 +1,6 @@
 package com.flexpag.paymentscheduler.service;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,15 +36,15 @@ public class PagamentoService {
 
     public Pagamento atualizarPagamento(Pagamento pagamento) {
         pagamento.setStatus(PagamentoStatus.PAID);
-        pagamento.setHoraPagamento(LocalTime.now());
+        pagamento.setDataHoraPagamento(LocalDateTime.now());
 
         return pagamentoRepository.save(pagamento);
     }
 
-    public Pagamento agendarPagamento(Long id, LocalTime horaPagamento) {
+    public Pagamento agendarPagamento(Long id, LocalDateTime horaPagamento) {
         Pagamento pagamento = pagamentoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pagamento não encontrado!"));
-        pagamento.setHoraPagamento(horaPagamento);
+        pagamento.setDataHoraPagamento(horaPagamento);
 
         return pagamentoRepository.save(pagamento);
     }

@@ -63,15 +63,21 @@ public class PagamentoController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Pagamento atualizar(@PathVariable("id") Long id,@RequestBody Pagamento pagamento) {
-        Pagamento atualizarValor = pagamentoService.buscarPorId(id);
-        
-        atualizarValor.setValor(pagamento.getValor());
+    public ResponseEntity<Void> atualizar(@PathVariable("id") Long id,@RequestBody Pagamento pagamento) {
+        Pagamento atualiarHora = pagamentoService.buscarPorId(id);
 
+        if(pagamento == null) {
+            return ResponseEntity.notFound().build();
+        }
 
-        pagamentoService.atualizar(atualizarValor);
+        if(pagamento.getStatus() == PagamentoStatus.PAID) {
+            return ResponseEntity.badRequest().build();
+        }
+        atualiarHora.setDataHoraPagamento(pagamento.getDataHoraPagamento());
 
-        return atualizarValor;
+        pagamentoService.atualizar(atualiarHora);
+        return ResponseEntity.noContent().build();
+
     }
 
 

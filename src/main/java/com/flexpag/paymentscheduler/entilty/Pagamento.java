@@ -1,7 +1,7 @@
 package com.flexpag.paymentscheduler.entilty;
 
 import java.math.BigDecimal;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +31,7 @@ public class Pagamento {
     private BigDecimal valor;
 
     @Column(name = "hora_pagamento")
-    private LocalTime horaPagamento;
+    private LocalDateTime dataHoraPagamento;
     
     @Column(name="status")
     @Enumerated(EnumType.STRING)
