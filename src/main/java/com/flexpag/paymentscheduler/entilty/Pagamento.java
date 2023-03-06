@@ -13,10 +13,6 @@ import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonValueFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
