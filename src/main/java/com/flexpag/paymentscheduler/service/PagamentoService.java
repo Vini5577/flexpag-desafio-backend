@@ -26,12 +26,14 @@ public class PagamentoService {
         return pagamentoRepository.findAll();
     }
 
-    public Pagamento atualizar(Pagamento pagamento) {
+    public void atualizar(Pagamento pagamento) {
         if (pagamento.getValor() == null) {
             pagamento.setStatus(PagamentoStatus.PENDING);
         }
         
-        return pagamentoRepository.save(pagamento);
+        if (PagamentoStatus.PENDING == pagamento.getStatus()) {
+            pagamentoRepository.save(pagamento);
+        }
     }
 
     public Pagamento atualizarPagamento(Pagamento pagamento) {

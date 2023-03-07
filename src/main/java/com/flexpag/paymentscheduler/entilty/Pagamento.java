@@ -13,6 +13,8 @@ import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,8 +34,9 @@ public class Pagamento {
     @Column(name="valor")
     private BigDecimal valor;
 
-    @Column(name = "hora_pagamento")
-    @DateTimeFormat(pattern = "dd/mm/yyy'T'HH:mm:ss")
+    @Column(name = "data/hora_pagamento")
+    @DateTimeFormat(pattern = "dd/mm/yyyy HH:mm")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime dataHoraPagamento;
     
     @Column(name="status")
